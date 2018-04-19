@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Js Tutorial</title>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="intro" style="text-align:center;">
+      <a v-bind:href="website">Google</a>
+      <input type='text' v-bind:value="message">
+      <h2>{{ greet('afternoon') }}</h2>
+      <h1>{{ message }}</h1>
+      <p v-html="websiteTag"></p>
+      <button v-on:click.once="add(1)">Add year</button>
+      <button v-on:click="substract(1)">subtract year</button>
+      <button v-on:dblclick="add(5)">Add 5 year</button>
+      <button v-on:dblclick="substract(5)">subtract 5 year</button>
+      <p>{{ age}}</p>
+      <div id="canvas" @mousemove="updateXY">{{x}},{{y}}</div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
