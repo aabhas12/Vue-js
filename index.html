@@ -6,20 +6,44 @@
     <link href="style.css" rel="stylesheet"/>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
   </head>
-  
+
   <body>
-    <div id="intro" style="text-align:center;">
+    <div id="intro">
       <a v-bind:href="website">Google</a>
       <input type='text' v-bind:value="message">
       <h2>{{ greet('afternoon') }}</h2>
       <h1>{{ message }}</h1>
       <p v-html="websiteTag"></p>
-      <button v-on:click.once="add(1)">Add year</button>
-      <button v-on:click="substract(1)">subtract year</button>
+      <button v-on:click="x++">Add year</button>
+      <button v-on:click="y++">subtract year</button>
+      <p>X-{{x}}</p>
+      <p>Y-{{y}}</p>
+      <p>age + X = {{ addtox }}</p>
+      <p>age + Y = {{ addtoy }}</p>
       <button v-on:dblclick="add(5)">Add 5 year</button>
       <button v-on:dblclick="substract(5)">subtract 5 year</button>
       <p>{{ age}}</p>
-      <div id="canvas" @mousemove="updateXY">{{x}},{{y}}</div>
+      <label>Name:</label>
+      <input type="text" v-model="name"/>
+      <span>{{ name }}</span>
+      <label>Age:</label>
+      <input type="text" v-model="age"/>
+      <span>{{ age }}</span>
+      <ul>
+          <li v-for="character in characters">{{ character }}</li>
+      </ul>
+      <ul>
+          <li v-for="(ninja, index) in ninjas">{{ index+1 }}.{{ ninja.name }} - {{ ninja.age }}</li>
+      </ul>
+      <template v-for="(ninja, index) in ninjas">
+        <h3>{{index+1}}.{{ninja.name}}</h3>
+        <p>{{ninja.age}}</p>
+      </template>
+      <template v-for="ninja in ninjas">
+        <div v-for="(val,key) in ninja">
+          <p>{{val}} - {{key}}</p>
+      </div>
+      </template>
     </div>
     <script src="app.js"></script>
   </body>
